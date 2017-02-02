@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>The Library</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body ng-app="library" ng-strict-di>
+
+<noscript>
+  <p>You should enable JavaScript for this to work! 😞</p>
+</noscript>
+
+<script>
+  document.write('<p class="lb-loading" ng-if="!library.isLoaded">Loading</p>');
+</script>
+
+<div class="lb-body-wrapper" style="visibility: hidden">
+  <header class="container">
+    <h1>The Library</h1>
+  </header>
+  <main class="container" ui-view></main>
+</div>
+
+</body>
+</html>

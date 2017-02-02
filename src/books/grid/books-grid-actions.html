@@ -1,0 +1,8 @@
+<a class="btn btn-sm btn-primary" ui-sref="bookEdit({ book: row.entity.book._id })"
+   title="Edit {{row.entity.book.title}}" ng-click="grid.appScope.edit(row.entity)">
+  <span class="fa fa-pencil"></span>
+</a>
+<button class="btn btn-sm btn-danger" title="Delete {{row.entity.book.title}}"
+        ng-click="grid.appScope.remove(row.entity)">
+  <span class="fa fa-trash"></span>
+</button>

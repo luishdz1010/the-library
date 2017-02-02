@@ -1,0 +1,46 @@
+<form name="bookForm"
+      ng-submit="bookForm.$valid && $ctrl.onSubmit({ book: $ctrl.book })">
+
+  <div class="form-group" ng-class="{ 'has-error': bookForm.title.$invalid && bookForm.title.$touched }">
+    <label for="book-form__title">
+      Title
+    </label>
+    <input type="text" ng-model="$ctrl.book.title" name="title" id="book-form__title" required>
+  </div>
+
+  <div class="form-group" ng-class="{ 'has-error': bookForm.author.$invalid && bookForm.author.$touched }">
+    <label for="book-form__author">
+      Author
+    </label>
+    <input type="text" ng-model="$ctrl.book.author" name="author" id="book-form__author" required>
+  </div>
+
+  <div class="form-group" ng-class="{ 'has-error': bookForm.category.$invalid && bookForm.category.$touched }">
+    <label for="book-form__category">
+      Category
+    </label>
+    <ui-select ng-model="$ctrl.book.category" name="category" id="book-form__category" theme="bootstrap"
+               title="Choose a category" required>
+      <ui-select-match placeholder="Select a category or search for one">
+        {{$select.selected.title}}
+      </ui-select-match>
+      <ui-select-choices
+          repeat="category.title as category in $ctrl.categories | filter: $select.search">
+        <div ng-bind-html="category.title | highlight: $select.search"></div>
+      </ui-select-choices>
+    </ui-select>
+  </div>
+
+  <div class="form-group"
+       ng-class="{ 'has-error': bookForm.publishedDate.$invalid && bookForm.publishedDate.$touched }">
+    <label for="book-form__publishedDate">
+      Published Date
+    </label>
+    <input type="date" ng-model="$ctrl.book.publishedDate" name="publishedDate" id="book-form__publishedDate"
+           required>
+  </div>
+
+  <button type="submit" ng-disabled="!bookForm.$valid || bookForm.$submitted" class="btn btn-primary">
+    Submit
+  </button>
+</form>

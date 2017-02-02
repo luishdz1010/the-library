@@ -1,0 +1,7 @@
+<h2>Books</h2>
+<div uib-alert class="alert alert-success" close="$ctrl.closeFlash()" ng-if="$ctrl.flash"
+     dismiss-on-timeout="5000">
+  <div ng-bind-html="$ctrl.flash"></div>
+</div>
+
+<div ui-view="content"></div>

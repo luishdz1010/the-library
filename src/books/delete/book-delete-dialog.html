@@ -1,0 +1,10 @@
+<div class="modal-header">
+  <h3 class="modal-title">Delete book</h3>
+</div>
+<div class="modal-body">
+  Are you sure you want to delete <em>{{ $ctrl.book.title }}</em>?
+</div>
+<div class="modal-footer">
+  <button class="btn btn-danger" type="button" ng-click="$ctrl.close({$value: $ctrl.book});">Ok, delete</button>
+  <button class="btn btn-default" type="button" ng-click="$ctrl.dismiss({$value: 'cancel'});">Cancel</button>
+</div>
