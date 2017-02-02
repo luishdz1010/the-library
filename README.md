@@ -9,14 +9,14 @@ Requirements:
 Instructions:
 * `git clone https://github.com/luishdz1010/the-library`
 * `cd the-library`
-* `npm install`
-* `npm start`
+* `yarn install` or `npm install`
+* `yarn start` or `npm start`
 
 The web application will be available at [http://localhost:3000](http://localhost:3000).
 
 ## Front only build
 
-For building only the front artifacts (without the server), use `npm run build`, assets will be at `./dist` folder.
+For building the front artifacts to disk, use `npm run build`, assets will be at `./dist` folder.
 
 Build flags:
 * `--env.prod` Minify resulting assets
