@@ -10,7 +10,6 @@ export default module('library.database', [])
       this.db = new PouchDB('library');
 
       if (process.env.NODE_ENV === 'development') {
-        // PouchDB.debug.enable('*');
         $window.db = this.db;
       }
     }
