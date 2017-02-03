@@ -90,7 +90,7 @@ class BooksGridComponent {
     let modal = this.modal.open({
       component: 'lbBookReturnDialog',
       resolve: {
-        lbBook: () => book.book,
+        lbBook: () => book,
         lbBorrowedBy: () => borrowedBy
       }
     });

@@ -1,6 +1,5 @@
 class BookReturnDialogController {
   $onInit() {
-    console.log(this.resolve);
     ({lbBook: this.book, lbBorrowedBy: this.borrowedBy} = this.resolve);
   }
 }
