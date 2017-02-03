@@ -1,0 +1,98 @@
+[
+  {
+    "title": "Harry Potter and the Philosopher's Stone",
+    "author": "J.K. Rowling",
+    "category": "Action and Adventure",
+    "publishedDate": "1997-01-01T05:41:24.462Z",
+    "lastUpdated": "2017-02-03T05:41:24.462Z",
+    "type": "book"
+  },
+  {
+    "title": "Effective Java",
+    "author": "Joshua Bloch",
+    "category": "Horror",
+    "publishedDate": "2008-01-01T05:41:24.462Z",
+    "lastUpdated": "2017-02-03T05:41:24.462Z",
+    "type": "book"
+  },
+  {
+    "title": "Effective C++",
+    "author": "Scott Meyers",
+    "category": "Horror",
+    "publishedDate": "2005-01-01T05:41:24.462Z",
+    "lastUpdated": "2017-02-03T05:41:24.462Z",
+    "type": "book"
+  },
+  {
+    "title": "Harry Potter and the Philosopher's Stone 1",
+    "author": "J.K. Rowling",
+    "category": "Action and Adventure",
+    "publishedDate": "1997-01-01T05:41:24.462Z",
+    "lastUpdated": "2017-02-03T05:41:24.462Z",
+    "type": "book"
+  },
+  {
+    "title": "Effective Java 2",
+    "author": "Joshua Bloch",
+    "category": "Horror",
+    "publishedDate": "2008-01-01T05:41:24.462Z",
+    "lastUpdated": "2017-02-03T05:41:24.462Z",
+    "type": "book"
+  },
+  {
+    "title": "Effective C++ 3",
+    "author": "Scott Meyers",
+    "category": "Horror",
+    "publishedDate": "2005-01-01T05:41:24.462Z",
+    "lastUpdated": "2017-02-03T05:41:24.462Z",
+    "type": "book"
+  },
+  {
+    "title": "Harry Potter and the Philosopher's Stone 4",
+    "author": "J.K. Rowling",
+    "category": "Action and Adventure",
+    "publishedDate": "1997-01-01T05:41:24.462Z",
+    "lastUpdated": "2017-02-03T05:41:24.462Z",
+    "type": "book"
+  },
+  {
+    "title": "Effective Java 5",
+    "author": "Joshua Bloch",
+    "category": "Horror",
+    "publishedDate": "2008-01-01T05:41:24.462Z",
+    "lastUpdated": "2017-02-03T05:41:24.462Z",
+    "type": "book"
+  },
+  {
+    "title": "Effective C++ 6",
+    "author": "Scott Meyers",
+    "category": "Horror",
+    "publishedDate": "2005-01-01T05:41:24.462Z",
+    "lastUpdated": "2017-02-03T05:41:24.462Z",
+    "type": "book"
+  },
+  {
+    "title": "Harry Potter and the Philosopher's Stone 7",
+    "author": "J.K. Rowling",
+    "category": "Action and Adventure",
+    "publishedDate": "1997-01-01T05:41:24.462Z",
+    "lastUpdated": "2017-02-03T05:41:24.462Z",
+    "type": "book"
+  },
+  {
+    "title": "Effective Java 8",
+    "author": "Joshua Bloch",
+    "category": "Horror",
+    "publishedDate": "2008-01-01T05:41:24.462Z",
+    "lastUpdated": "2017-02-03T05:41:24.462Z",
+    "type": "book"
+  },
+  {
+    "title": "Effective C++ 9",
+    "author": "Scott Meyers",
+    "category": "Horror",
+    "publishedDate": "2005-01-01T05:41:24.462Z",
+    "lastUpdated": "2017-02-03T05:41:24.462Z",
+    "type": "book"
+  }
+]

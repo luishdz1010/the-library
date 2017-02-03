@@ -5,6 +5,7 @@ import booksGrid from './grid/books-grid';
 import bookEdit from './edit/book-edit';
 import bookCreate from './create/book-create';
 import booksPageComponent from './books-page.component';
+import dummyBooks from './books-data.json';
 
 export default module('library.books', [
   uiAlert,
@@ -71,5 +72,11 @@ export default module('library.books', [
   })
 
   .component('lbBooksPage', booksPageComponent)
+
+  .run((booksService) => {
+    'ngInject';
+
+    booksService.scaffold(dummyBooks);
+  })
 
   .name;

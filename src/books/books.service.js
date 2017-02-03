@@ -40,6 +40,15 @@ export default module('library.books.service', [
       });
     }
 
+    scaffold(data) {
+      this.db.put({_id: 'bookscaffold'})
+        .then(() => {
+          this.db.bulkDocs(data)
+            .catch(alert);
+        })
+        .catch(() => void 0);
+    }
+
     addChangeListener(listener) {
       let changes = this.db.changes({
         since: 'now',
