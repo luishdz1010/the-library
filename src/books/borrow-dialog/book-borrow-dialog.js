@@ -1,8 +1,12 @@
 import {module} from 'angular';
+import uiSelect from '../../vendor/ui-select';
+import customersService from '../../customers/customers.service';
 import bookBorrowDialogComponent from './book-borrow-dialog.component';
-// import borrowDialog from '';
 
-export default module('library.books.borrow', [])
+export default module('library.books.borrow-dialog', [
+  uiSelect,
+  customersService
+])
 
   .component('lbBookBorrowDialog', bookBorrowDialogComponent)
 

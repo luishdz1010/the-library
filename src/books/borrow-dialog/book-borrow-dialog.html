@@ -1,0 +1,29 @@
+<form name="borrowForm" ng-submit="borrowForm.$valid && $ctrl.close({$value: $ctrl.selectedCustomer});">
+  <div class="modal-header">
+    <h3 class="modal-title">Borrow book</h3>
+  </div>
+  <div class="modal-body">
+
+    <div class="form-group" ng-class="{ 'has-error': borrowForm.selectedCustomer.$invalid 
+        && borrowForm.borrowForm.$touched }">
+      <label for="book-borrow-dialog__selectedCustomer">
+        Borrow <em>{{:: $ctrl.book.title }}</em> to customer:
+      </label>
+      <ui-select ng-model="$ctrl.selectedCustomer" name="selectedCustomer" id="book-borrow-dialog__selectedCustomer"
+                 theme="bootstrap" title="Choose a customer" required>
+        <ui-select-match placeholder="Select a customer or search for one">
+          {{$select.selected.name}}
+        </ui-select-match>
+        <ui-select-choices
+            repeat="customer in $ctrl.customers | filter: $select.search">
+          <div ng-bind-html="customer.name | highlight: $select.search"></div>
+        </ui-select-choices>
+      </ui-select>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" type="submit" ng-disabled="!borrowForm.$valid">Borrow</button>
+    <button class="btn btn-default" type="button" ng-click="$ctrl.dismiss({$value: 'cancel'});">Cancel</button>
+  </div>
+</form>
