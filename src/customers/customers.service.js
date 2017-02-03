@@ -24,7 +24,7 @@ export default module('library.customers.service', [
         attachments: true,
         startkey: 'user',
         endkey: 'user\uffff'
-      });
+      }).then(res => res.rows.map(row => row.doc));
     }
   })
 
