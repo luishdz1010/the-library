@@ -2,7 +2,7 @@ let empty = [];
 
 class BooksGridComponent {
 
-  constructor($scope, $uibModal, booksService) {
+  constructor($scope, $uibModal, booksService, uiGridConstants) {
     'ngInject';
 
     this.modal = $uibModal;
@@ -14,16 +14,16 @@ class BooksGridComponent {
       data: empty,
       rowHeight: 37,
       columnDefs: [
-        {name: 'Title', field: 'book.title'},
+        {name: 'Title', field: 'book.title', sort: {direction: uiGridConstants.ASC, priority: 0}},
         {name: 'Author', field: 'book.author'},
         {name: 'Category', field: 'book.category'},
         {name: 'Published Date', field: 'book.publishedDate', cellFilter: 'date:mediumDate'},
         {
           name: 'Borrowed By', field: 'borrowedBy.name',
-          cellTemplate: '<div class="ui-grid-cell-contents">{{ COL_FIELD || "No one" }}</div>'
+          cellTemplate: '<div class="ui-grid-cell-contents">{{ COL_FIELD || "-" }}</div>'
         },
         {
-          name: 'Actions', enableSorting: false, maxWidth: 100,
+          name: 'Actions', enableSorting: false, maxWidth: 150,
           cellClass: 'text-center',
           cellTemplate: require('./books-grid-actions.html')
         }
@@ -53,19 +53,55 @@ class BooksGridComponent {
 
   }
 
-  remove(book) {
-    console.log(book);
+  remove({book}) {
     let modal = this.modal.open({
       component: 'lbBookDeleteDialog',
       resolve: {
-        lbBook: () => book.book
+        lbBook: () => book
       }
     });
 
     modal.result
       .then(() => {
-        this.booksService.remove(book.book);
-      });
+        this.booksService.remove(book)
+          .catch(e => alert(e));
+      })
+      .catch(() => void 0);
+  }
+
+  borrow({book}) {
+    let modal = this.modal.open({
+      component: 'lbBookBorrowDialog',
+      resolve: {
+        lbBook: () => book
+      }
+    });
+
+    modal.result
+      .then((customer) => {
+        book.borrowedBy = customer._id;
+        this.booksService.save(book)
+          .catch(e => alert(e));
+      })
+      .catch(() => 0);
+  }
+
+  returnBook({book, borrowedBy}) {
+    let modal = this.modal.open({
+      component: 'lbBookReturnDialog',
+      resolve: {
+        lbBook: () => book.book,
+        lbBorrowedBy: () => borrowedBy
+      }
+    });
+
+    modal.result
+      .then(() => {
+        book.borrowedBy = null;
+        this.booksService.save(book)
+          .catch(e => alert(e));
+      })
+      .catch(() => 0);
   }
 }
 

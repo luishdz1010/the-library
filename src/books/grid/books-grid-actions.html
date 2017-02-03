@@ -1,4 +1,12 @@
-<a class="btn btn-sm btn-primary" ui-sref="bookEdit({ book: row.entity.book._id })"
+<button ng-if="!row.entity.borrowedBy" class="btn btn-sm btn-primary" title="Borrow {{row.entity.book.title}}"
+        ng-click="grid.appScope.borrow(row.entity)">
+  <span class="fa fa-sign-out"></span>
+</button>
+<button ng-if="row.entity.borrowedBy" class="btn btn-sm btn-primary" title="Return {{row.entity.book.title}}"
+        ng-click="grid.appScope.returnBook(row.entity)">
+  <span class="fa fa-sign-in"></span>
+</button>
+<a class="btn btn-sm btn-default" ui-sref="bookEdit({ book: row.entity.book._id })"
    title="Edit {{row.entity.book.title}}" ng-click="grid.appScope.edit(row.entity)">
   <span class="fa fa-pencil"></span>
 </a>
