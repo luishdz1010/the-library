@@ -36,8 +36,17 @@
     <label for="book-form__publishedDate">
       Published Date
     </label>
-    <input type="date" ng-model="$ctrl.book.publishedDate" name="publishedDate" id="book-form__publishedDate"
-           required>
+
+    <div class="input-group" ng-init="publishedDatePopupOpened = false">
+      <input type="text" uib-datepicker-popup="dd-MMMM-yyyy" ng-model="$ctrl.book.publishedDate"
+             name="publishedDate" id="book-form__publishedDate"
+             is-open="publishedDatePopupOpened" required/>
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-default" ng-click="publishedDatePopupOpened = true">
+          <span class="fa fa-calendar"></span>
+        </button>
+      </span>
+    </div>
   </div>
 
   <button type="submit" ng-disabled="!bookForm.$valid || bookForm.$submitted" class="btn btn-primary">
