@@ -45,9 +45,6 @@ let config = {
             ['babel-preset-es2015', {modules: false}],
             'babel-preset-es2016',
             'babel-preset-es2017'
-          ],
-          plugins: [
-            require.resolve('babel-plugin-transform-regenerator')
           ]
         }
       },
