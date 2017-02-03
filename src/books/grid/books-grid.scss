@@ -1,0 +1,26 @@
+@import "../../style/include";
+
+.books-grid__filters {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $screen-sm-min) {
+    flex-direction: row;
+  }
+}
+
+.books-grid__search-group {
+  flex: 0 0 auto;
+  @media (min-width: $screen-sm-min) {
+    width: 300px;
+    margin-right: $grid-gutter-width / 2;
+  }
+}
+
+.books-grid__categories-group {
+  flex: 1 1 auto;
+}
+
+.books-grid__actions {
+  text-align: right;
+}

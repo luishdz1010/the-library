@@ -1,4 +1,7 @@
-let empty = [];
+import includes from 'lodash/includes';
+import trim from 'lodash/trim';
+
+const empty = [];
 
 class BooksGridComponent {
 
@@ -8,6 +11,8 @@ class BooksGridComponent {
     this.modal = $uibModal;
     this.booksService = booksService;
 
+    this.search = '';
+    this.filteredCategories = [];
     this.gridData = {
       appScopeProvider: this,
       enableColumnMenus: false,
@@ -33,7 +38,7 @@ class BooksGridComponent {
     this.unregisterChangeListener = booksService.addChangeListener(() => {
       this.booksService.findAll()
         .then(books => {
-          this.gridData.data = books;
+          this.rawData = books;
           this.applyFilters();
           $scope.$apply();
         });
@@ -41,16 +46,46 @@ class BooksGridComponent {
   }
 
   $onChanges() {
-    if (this.initialBooks && this.gridData.data === empty)
-      this.gridData.data = this.initialBooks;
+    if (this.initialBooks && this.gridData.data === empty) {
+      this.rawData = this.initialBooks;
+      this.applyFilters();
+    }
   }
 
   $onDestroy() {
     this.unregisterChangeListener();
   }
 
-  applyFilters() {
+  searchChanged() {
+    this.applyFilters();
+  }
 
+  filteredCategoriesChanged() {
+    this.applyFilters()
+  }
+
+  applyFilters() {
+    let data = this.rawData;
+
+    let search = trim(this.search).toLowerCase();
+    if (search) {
+      data = data.filter(({book, borrowedBy}) =>
+        includes(book.title.toLowerCase(), search) ||
+        includes(book.author.toLowerCase(), search) ||
+        (borrowedBy && includes(borrowedBy.name.toLowerCase(), search))
+      )
+    }
+
+    if (this.filteredCategories.length)
+      data = data.filter(({book}) => includes(this.filteredCategories, book.category));
+
+    this.gridData.data = data;
+  }
+
+  clearFilters() {
+    this.search = '';
+    this.filteredCategories = [];
+    this.applyFilters();
   }
 
   remove({book}) {
@@ -108,7 +143,8 @@ class BooksGridComponent {
 export default {
   controller: BooksGridComponent,
   bindings: {
-    initialBooks: '<?lbInitialBooks'
+    initialBooks: '<?lbInitialBooks',
+    categories: '<lbCategories'
   },
   template: require('./books-grid.html')
 };

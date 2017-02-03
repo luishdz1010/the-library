@@ -1,4 +1,32 @@
-<p>
+<div class="books-grid__filters">
+  <div class="form-group books-grid__search-group">
+    <label for="books-grid__search">
+      Search
+    </label>
+    <input type="search" name="search" id="books-grid__search" ng-model="$ctrl.search"
+           ng-model-options="{ debounce: 200 }"
+           ng-change="$ctrl.searchChanged()" placeholder="Title, author, borrowed by...">
+  </div>
+
+  <div class="form-group books-grid__categories-group">
+    <label for="books-grid__categories">
+      Filter by categories
+    </label>
+    <ui-select multiple ng-model="$ctrl.filteredCategories" ng-change="$ctrl.filteredCategoriesChanged()"
+               name="categories" id="books-grid__categories" class="books-grid__categories"
+               theme="bootstrap" title="Filter by categories" required>
+      <ui-select-match placeholder="Select one or more categories...">
+        {{$item.title}}
+      </ui-select-match>
+      <ui-select-choices
+          repeat="category.title as category in $ctrl.categories | filter: $select.search">
+        <div ng-bind-html="category.title | highlight: $select.search"></div>
+      </ui-select-choices>
+    </ui-select>
+  </div>
+</div>
+<p class="books-grid__actions">
   <a ui-sref="bookCreate" class="btn btn-primary">Add Book</a>
+  <button class="btn btn-default" ng-click="$ctrl.clearFilters()">Clear filters</button>
 </p>
 <div ui-grid="$ctrl.gridData"></div>

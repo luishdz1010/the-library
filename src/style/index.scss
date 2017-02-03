@@ -6,7 +6,7 @@ label[for] {
   @extend .control-label;
 }
 
-input,
+input[name],
 select,
 textarea {
   @extend .form-control;

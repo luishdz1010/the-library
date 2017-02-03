@@ -1,4 +1,5 @@
 import 'ui-select/dist/select.css';
+import './ui-select.scss';
 import {module} from 'angular';
 import uiSelect from 'ui-select';
 

@@ -13,7 +13,6 @@ class BookBorrowDialogController {
     this.customersService.findAll()
       .then((customers) => {
         this.customers = customers;
-        console.log(customers);
         this.scope.$apply();
       });
   }

@@ -37,6 +37,10 @@ export default module('library.books', [
         lbInitialBooks(booksService) {
           'ngInject';
           return booksService.findAll();
+        },
+        lbCategories(booksService) {
+          'ngInject';
+          return booksService.findAllCategories();
         }
       }
     });
