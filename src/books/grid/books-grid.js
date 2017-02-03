@@ -12,6 +12,7 @@ import booksGridComponent from './books-grid.component.js';
 
 export default module('library.books.grid', [
   uiGrid,
+  'ui.grid.pagination',
   uiModal,
   uiSelect,
   booksService,

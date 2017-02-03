@@ -14,8 +14,11 @@ class BooksGridComponent {
     this.search = '';
     this.filteredCategories = [];
     this.gridData = {
+      enablePaging: true,
       appScopeProvider: this,
       enableColumnMenus: false,
+      paginationPageSizes: [25, 50, 75],
+      paginationPageSize: 25,
       data: empty,
       rowHeight: 37,
       columnDefs: [
